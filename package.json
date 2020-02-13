@@ -1,0 +1,25 @@
+{
+  "name": "gestion_classement_basket",
+  "version": "1.0.0",
+  "description": "petite application permettant la gestion d'un classement de plusieurs equipes de basket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "basketball"
+  ],
+  "author": "Dylan Otina",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "mongoose": "^5.8.13",
+    "npm": "^6.13.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
