@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 const EquipeSchema = new Schema(
   {
     name: { type: String, required: true },
-    wins: { type: Number },
-    losses: { type: Number },
-    PointsScored: { type: Number },
-    PointsAllowed: { type: Number },
+    wins: { type: Number, default: 0 },
+    losses: { type: Number, default: 0 },
+    PointsScored: { type: Number, default: 0 },
+    PointsAllowed: { type: Number, default: 0 },
     PointAverage: { type: Number }
   },
   {

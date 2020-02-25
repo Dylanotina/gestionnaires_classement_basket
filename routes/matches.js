@@ -8,20 +8,20 @@ router.route("/").get((req, res) => {
 });
 
 router.route("/add").post((req, res) => {
-  const equipeDomName = req.body.equipeDomName;
-  const equipeVisitName = req.body.equipeVisitName;
-  const equipeDomScore = req.body.equipeDomScore;
-  const equipeVisitScore = req.body.equipeVisitScore;
+  const equipeDomName = req.body.EquipeDomName;
+  const equipeVisitName = req.body.EquipeVisitName;
+  const equipeDomScore = req.body.EquipeDomScore;
+  const equipeVisitScore = req.body.EquipeVisitScore;
   const winner = req.body.winner;
   const looser = req.body.looser;
 
   let newMatch = new Matchs({
-    equipeDomName,
-    equipeVisitName,
-    equipeDomScore,
-    equipeVisitScore,
-    winner,
-    looser
+    EquipeDomName: equipeDomName,
+    EquipeVisitName: equipeVisitName,
+    EquipeDomScore: equipeDomScore,
+    EquipeVisitScore: equipeVisitScore,
+    winner: winner,
+    looser: looser
   });
   newMatch
     .save()

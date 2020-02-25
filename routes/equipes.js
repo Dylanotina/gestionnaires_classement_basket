@@ -4,15 +4,18 @@ const Equipes = require("../models/equipes.models");
 
 router.route("/").get((req, res) => {
   Equipes.find()
+    .sort([
+      ["wins", "descending"],
+      ["losses", "ascending"]
+    ])
     .then(equipes => res.json(equipes))
     .catch(err => res.status(400).json("Error" + err));
 });
 
 router.route("/add").post((req, res) => {
   const name = req.body.name;
-  const id = req.body.id;
 
-  const newEquipe = new Equipes({ id, name });
+  const newEquipe = new Equipes({ name });
 
   newEquipe
     .save()
@@ -24,15 +27,15 @@ router.route("/add").post((req, res) => {
     });
 });
 
-router.route("update/:id").post((req, res) => {
-  Equipes.findById(req.params.id)
+router.route("/update").post((req, res) => {
+  Equipes.findOne({ name: req.body.name })
     .then(equipe => {
       equipe.wins = Number(equipe.wins) + Number(req.body.wins);
       equipe.losses = Number(equipe.losses) + Number(req.body.losses);
-      equipe.pointsScored =
-        Number(equipe.pointsScored) + Number(req.body.pointsScored);
-      equipe.pointsAllowed =
-        Number(equipe.pointsAllowed) + Number(req.body.pointsAllowed);
+      equipe.PointsScored =
+        Number(equipe.PointsScored) + Number(req.body.PointsScored);
+      equipe.PointsAllowed =
+        Number(equipe.PointsAllowed) + Number(req.body.PointsAllowed);
 
       equipe
         .save()

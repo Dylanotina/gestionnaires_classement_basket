@@ -9,7 +9,7 @@ const MatchSchema = new Schema(
     EquipeDomScore: { type: Number, required: true },
     EquipeVisitScore: { type: Number, required: true },
     winner: { type: String },
-    loser: { type: String }
+    looser: { type: String }
   },
   {
     timestamps: true
