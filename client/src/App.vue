@@ -30,7 +30,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: beige;
   background: linear-gradient(
     0deg,
     rgba(45, 60, 253, 1) 45%,

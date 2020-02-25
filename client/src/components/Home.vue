@@ -41,11 +41,13 @@ export default {
   align-content: center;
 }
 .container div {
-  color: white;
-  background-color: aqua;
+  color: beige;
   width: 100%;
+  transition: transform 0.2s;
 }
-
+.container div:hover {
+  transform: scale(2);
+}
 a {
   text-decoration: none;
   width: calc(100%-200px);

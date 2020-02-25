@@ -7,12 +7,15 @@
     </div>
     <div class="ajoutEquipe">
       <form>
-        <input type="text" v-model="nameTeam" />
-        <input type="button" value="envoyer" v-on:click="onSubmit" />
+        <input class="form-control" type="text" v-model="nameTeam" />
+        <input type="button" class="btn btn-primary" value="envoyer" v-on:click="onSubmit" />
       </form>
     </div>
-    <div class="texte_equipe_ajouté">
-      <p>{{texte}}</p>
+    <div class="alert alert-success alert-dismissible fade show" id="change" v-show="texte != null">
+      {{texte}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   </div>
 </template>
@@ -23,22 +26,34 @@ export default {
   name: "addEquipe",
   data() {
     return {
-      nameTeam: "",
-      texte: ""
+      nameTeam: null,
+      texte: null
     };
   },
   methods: {
     onSubmit() {
-      if (this.nameTeam != null)
+      if (this.nameTeam != null) {
         axios
           .post("http://localhost:3001/equipes/add", { name: this.nameTeam })
           .then(response => (this.texte = response.data))
           .catch(e => this.errors.push(e));
-      this.nameTeam = "";
+        this.nameTeam = "";
+      } else {
+        let element = document.getElementById("change");
+        element.className = "alert alert-danger alert-dismissible fade show";
+        this.texte = "Erreur, vous n'avez pas ajouté d'équipe";
+      }
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
+.btn {
+  margin-top: 2.5%;
+}
+
+.alert {
+  margin-top: 2.5%;
+}
 </style>

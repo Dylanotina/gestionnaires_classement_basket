@@ -26,13 +26,21 @@ export default {
   width: 100%;
   height: 100%;
 }
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
 .router {
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
-  background-color: red;
   width: 1080px;
   padding-top: 82px;
+  order: 3;
 }
 </style>
