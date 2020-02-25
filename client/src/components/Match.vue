@@ -4,7 +4,7 @@
       <h1>Matchs</h1>
       <h4>Voici une petite liste des matchs qui ont déja eu lieu:</h4>
     </div>
-    <table>
+    <table class="table table-hover table-bordered table-sm">
       <thead>
         <tr>
           <td>Domicile</td>
@@ -50,6 +50,6 @@ export default {
 table,
 th,
 td {
-  border: 2px solid black;
+  color: beige;
 }
 </style>

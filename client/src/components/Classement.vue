@@ -5,7 +5,7 @@
       <h4>Ici vous pouvez voir votre classement:</h4>
     </div>
 
-    <table class="tabclass">
+    <table class="table table-hover table-bordered table-sm">
       <thead>
         <tr>
           <td>Nom de l'équipe</td>
@@ -69,10 +69,9 @@ export default {
   margin-bottom: 30px;
   margin-top: 5px;
 }
-
 table,
 th,
 td {
-  border: 2px solid black;
+  color: beige;
 }
 </style>

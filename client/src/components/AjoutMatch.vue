@@ -6,27 +6,49 @@
     </div>
     <div class="ajoutMatch">
       <form>
-        <label for="nameDomicile">Team Domicile:</label>
-        <select name id="nameDomicile" @change="addTeamDomicile" :v-bind="teamDom">
-          <option
-            v-for="(equipe,index) in equipes "
-            :key="index"
-            :value="equipe.name"
-          >{{equipe.name}}</option>
-        </select>
-        <label for="nameVisiteuse">Team Visiteuse:</label>
-        <select name id="nameVisiteuse" @change="addTeamVisiteuse" :v-bind="teamVisit">
-          <option
-            v-for="(equipe,index) in equipes "
-            :key="index"
-            :value="equipe.name"
-          >{{equipe.name}}</option>
-        </select>
-        <label for="ScoreDom">Score Team Domicile:</label>
-        <input type="text" id="ScoreDom" v-model="ScoreDom" />
-        <label for="ScoreVisit">Score Team Visiteuse:</label>
-        <input type="text" id="ScoreVisit" v-model="ScoreVisit" />
-        <button @click.prevent="OnSubmit">Envoyer</button>
+        <div class="form-group">
+          <label for="nameDomicile">Team Domicile:</label>
+          <select
+            name
+            id="nameDomicile"
+            class="custom-select"
+            @change="addTeamDomicile"
+            :v-bind="teamDom"
+          >
+            <option selected>Team domicile</option>
+            <option
+              v-for="(equipe,index) in equipes "
+              :key="index"
+              :value="equipe.name"
+            >{{equipe.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="nameVisiteuse">Team Visiteuse:</label>
+          <select
+            name
+            id="nameVisiteuse"
+            class="custom-select"
+            @change="addTeamVisiteuse"
+            :v-bind="teamVisit"
+          >
+            <option selected>Team Visiteuse</option>
+            <option
+              v-for="(equipe,index) in equipes "
+              :key="index"
+              :value="equipe.name"
+            >{{equipe.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="ScoreDom">Score Team Domicile:</label>
+          <input type="text" class="form-control" id="ScoreDom" v-model="ScoreDom" />
+        </div>
+        <div class="form-group">
+          <label for="ScoreVisit">Score Team Visiteuse:</label>
+          <input type="text" class="form-control" id="ScoreVisit" v-model="ScoreVisit" />
+        </div>
+        <button class="btn btn-primary" @click.prevent="OnSubmit">Envoyer</button>
       </form>
     </div>
   </div>
@@ -133,4 +155,7 @@ export default {
 </script>
 
 <style>
+.ajoutMatch {
+  margin-top: 5%;
+}
 </style>
