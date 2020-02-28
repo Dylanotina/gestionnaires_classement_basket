@@ -43,22 +43,31 @@ app.put("/register", (req, res) => {
     });
   });
 });
-app.get("/auth", (req, res) => {
+app.post("/auth", (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
   let hash = null;
 
   if (username != null && password != null) {
-    Auth.findOne({ username: username }).then(user => {
-      hash = user.password;
-      bcrypt.compare(password, hash).then(result => {
-        if (result) {
-          res.status(200).send(result);
-        } else {
-          res.status(403).send(result);
-        }
-      });
-    });
+    Auth.findOne({ username: username })
+      .then(user => {
+        hash = user.password;
+        bcrypt.compare(password, hash).then(result => {
+          if (result) {
+            res.status(200).send({ success: result, jwt: "test" });
+          } else {
+            res.status(403).send({
+              success: result,
+              message: "Le mot de passe ne correspond pas"
+            });
+          }
+        });
+      })
+      .catch(err =>
+        res
+          .status(403)
+          .send({ success: false, message: "L'utilisateur n'a pas été trouvé" })
+      );
   } else {
     res.status(403).send("Authentification not authorized");
   }

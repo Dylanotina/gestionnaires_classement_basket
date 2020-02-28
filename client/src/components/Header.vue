@@ -3,18 +3,28 @@
     <router-link to="/">
       <h3>Gestion Classement tournoi basket</h3>
     </router-link>
+    <div class="connexion">
+      <router-link to="/auth">
+        <button class="btn btn-primary" v-if="connecte">Log in</button>
+      </router-link>
+      <button class="btn btn-danger" v-if="!connecte">Log out</button>
+    </div>
   </div>
 </template>
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  data() {
+    return {
+      connecte: true
+    };
+  }
 };
 </script>
 <style scoped>
 .header {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   position: fixed;
   align-items: center;
   justify-content: flex-start;
@@ -28,5 +38,11 @@ export default {
 a {
   text-decoration: none;
   color: beige;
+}
+
+.connexion {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 60%;
 }
 </style>
