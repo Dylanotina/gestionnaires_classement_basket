@@ -34,7 +34,7 @@ export default {
     onSubmit() {
       if (this.nameTeam != null) {
         axios
-          .post("http://localhost:3001/equipes/add", { name: this.nameTeam })
+          .post("/api/equipes/add", { name: this.nameTeam })
           .then(response => (this.texte = response.data))
           .catch(e => this.errors.push(e));
         this.nameTeam = "";

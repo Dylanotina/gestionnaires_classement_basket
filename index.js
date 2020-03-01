@@ -30,7 +30,7 @@ connection.once("open", () => {
   console.log("Connection succesful on the database");
 });
 
-app.put("/register", (req, res) => {
+app.put("/api/register", (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
 
@@ -43,7 +43,7 @@ app.put("/register", (req, res) => {
     });
   });
 });
-app.get("/auth", (req, res) => {
+app.get("/api/auth", (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
   let hash = null;
@@ -64,8 +64,8 @@ app.get("/auth", (req, res) => {
   }
 });
 
-app.use("/equipes", equipesRouter);
-app.use("/matchs", matchsRouter);
+app.use("/api/equipes", equipesRouter);
+app.use("/api/matchs", matchsRouter);
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}!`);

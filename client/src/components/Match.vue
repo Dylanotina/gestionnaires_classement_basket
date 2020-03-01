@@ -36,7 +36,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:3001/matchs")
+      .get("/api/matchs")
       .then(response => {
         console.log(response);
         this.matchs = response.data;

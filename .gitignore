@@ -5,3 +5,5 @@
 
 #Variables d'environnement
 .env
+
+vue.config.js

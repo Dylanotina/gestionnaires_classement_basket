@@ -80,7 +80,7 @@ export default {
     OnSubmit() {
       if (this.ScoreDom > this.ScoreVisit) {
         axios
-          .post("http://localhost:3001/matchs/add", {
+          .post("/api/matchs/add", {
             EquipeDomName: this.teamDom,
             EquipeVisitName: this.teamVisit,
             EquipeDomScore: this.ScoreDom,
@@ -89,7 +89,7 @@ export default {
             looser: this.teamVisit
           })
           .then(() => {
-            axios.post(`http://localhost:3001/equipes/update/`, {
+            axios.post(`/api/equipes/update/`, {
               name: this.teamDom,
               wins: 1,
               losses: 0,
@@ -98,7 +98,7 @@ export default {
             });
           })
           .then(() => {
-            axios.post(`http://localhost:3001/equipes/update/`, {
+            axios.post(`/api/equipes/update/`, {
               name: this.teamVisit,
               wins: 0,
               losses: 1,
@@ -112,7 +112,7 @@ export default {
           });
       } else {
         axios
-          .post("http://localhost:3001/matchs/add", {
+          .post("/api/matchs/add", {
             EquipeDomName: this.teamDom,
             EquipeVisitName: this.teamVisit,
             EquipeDomScore: this.ScoreDom,
@@ -121,7 +121,7 @@ export default {
             looser: this.teamDom
           })
           .then(() => {
-            axios.post(`http://localhost:3001/equipes/update/`, {
+            axios.post(`/api/equipes/update/`, {
               name: this.teamDom,
               wins: 0,
               losses: 1,
@@ -130,7 +130,7 @@ export default {
             });
           })
           .then(() => {
-            axios.post(`http://localhost:3001/equipes/update/`, {
+            axios.post(`/api/equipes/update/`, {
               name: this.teamVisit,
               wins: 1,
               losses: 0,
@@ -145,7 +145,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:3001/equipes")
+      .get("/api/equipes")
       .then(response => (this.equipes = response.data))
       .catch(err => {
         console.error(err);
